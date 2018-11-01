@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -11,6 +16,7 @@
 	<title>Fashiop</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
@@ -18,6 +24,9 @@
 	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 	<link rel="stylesheet" href="vendors/animate-css/animate.css">
 	<link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
@@ -30,15 +39,12 @@
 		<div class="top_menu row m0">
 			<div class="container-fluid">
 				<div class="float-left">
-					<%-- <p>Hi. ${username} </p> --%>
- 					<p><c:if test="${not empty username}">
- 						Hi. ${username} 
-					</c:if></p> 
+					<p>Call Us: 012 44 5698 7456 896</p>
 				</div>
 				<div class="float-right">
 					<ul class="right_side">
 						<li>
-							<a href="login.jsp">
+							<a href="login.html">
 								Login/Register
 							</a>
 						</li>
@@ -78,60 +84,57 @@
 										<a class="nav-link" href="index.html">Home</a>
 									</li>
 									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book</a>
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
-											
-												<a class="nav-link" href="showallbook.jsp" >Book</a>
-								
+												<a class="nav-link" href="category.html">Shop Category</a>
 												<li class="nav-item">
-													<a class="nav-link" href="single-product.jsp">Book Details</a>
+													<a class="nav-link" href="single-product.html">Product Details</a>
 													<li class="nav-item">
-														<a class="nav-link" href="checkout.jsp">Product Checkout</a>
+														<a class="nav-link" href="checkout.html">Product Checkout</a>
 														<li class="nav-item">
-															<a class="nav-link" href="cart.jsp">Shopping Cart</a>
+															<a class="nav-link" href="cart.html">Shopping Cart</a>
 														</li>
 														<li class="nav-item">
-															<a class="nav-link" href="confirmation.jsp">Confirmation</a>
+															<a class="nav-link" href="confirmation.html">Confirmation</a>
 														</li>
 										</ul>
-									</li>
-									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-										<ul class="dropdown-menu">
-											<li class="nav-item">
-												<a class="nav-link" href="blog.html">Blog</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="single-blog.html">Blog Details</a>
-											</li>
-										</ul>
-									</li>
-									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-										<ul class="dropdown-menu">
-											<li class="nav-item">
-												<a class="nav-link" href="login.html">Login</a>
+										</li>
+										<li class="nav-item submenu dropdown">
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="tracking.html">Tracking</a>
+													<a class="nav-link" href="blog.html">Blog</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" href="single-blog.html">Blog Details</a>
+												</li>
+											</ul>
+										</li>
+										<li class="nav-item submenu dropdown">
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="login.html">Login</a>
 													<li class="nav-item">
-														<a class="nav-link" href="elements.html">Elements</a>
-													</li>
-										</ul>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="contact.html">Contact</a>
-									</li>
+														<a class="nav-link" href="tracking.html">Tracking</a>
+														<li class="nav-item">
+															<a class="nav-link" href="elements.html">Elements</a>
+														</li>
+											</ul>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="contact.html">Contact</a>
+											</li>
 								</ul>
 							</div>
 
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
-<hr>
+									<hr>
 									<li class="nav-item">
 										<a href="#" class="icons">
 											<i class="fa fa-search" aria-hidden="true"></i>
-											<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 										</a>
 									</li>
 
@@ -140,8 +143,6 @@
 									<li class="nav-item">
 										<a href="#" class="icons">
 											<i class="fa fa-user" aria-hidden="true"></i>
-											<!-- <i class="lnr lnr lnr-user" aria-hidden="true"></i> -->
-											<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 										</a>
 									</li>
 
@@ -149,8 +150,7 @@
 
 									<li class="nav-item">
 										<a href="#" class="icons">
-											<!-- <i class="fa fa-heart-o" aria-hidden="true"></i> -->
-											<i class="lnr lnr lnr-heart" aria-hidden="true"></i>
+											<i class="fa fa-heart-o" aria-hidden="true"></i>
 										</a>
 									</li>
 
@@ -174,23 +174,159 @@
 	<!--================Header Menu Area =================-->
 
 	<!--================Home Banner Area =================-->
-	<section class="home_banner_area">
-		<div class="overlay"></div>
+	<section class="banner_area">
 		<div class="banner_inner d-flex align-items-center">
 			<div class="container">
-				<div class="banner_content row">
-					<div class="offset-lg-2 col-lg-8">
-						<h3>Fashion for
-							<br />Upcoming Winter</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-						<a class="white_bg_btn" href="showallbook.jsp">View Book</a>
+				<div class="banner_content text-center">
+					<h2>Shop Category Page</h2>
+					<div class="page_link">
+						<a href="index.html">Home</a>
+						<a href="category.html">Category</a>
+						<a href="category.html">Women Fashion</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!--================End Home Banner Area =================-->
+
+	<!--================Category Product Area =================-->
+	<section class="cat_product_area section_gap">
+		<div class="container-fluid">
+			<div class="row flex-row-reverse">
+				<div class="col-lg-9">
+					<div class="product_top_bar">
+						<div style="">
+						    <form class="bs-example bs-example-form" role="form" action="FindBookPages" method="get">
+								 <div class="row">
+								            <div class="form-inline">
+								                <input type="text" class="form-control" placeholder="key words" name="keywords"/>
+								             	    <select name="keywordstype" style="width:111px;height:32px" >
+													<option value="ISBN">ISBN</option>
+													<option value="Name">Name</option>
+													<option value="Coursecode">Course Code</option>
+													</select>
+								                <button class="btn btn-primary" type="submit">search</button>
+								            </div>
+								 </div>
+						    </form>
+						</div>
+					</div>
+					<div class="latest_product_inner row">					
+					<c:forEach items="${page.records}" var="b" varStatus="vs">	
+						<div class="col-lg-3 col-md-3 col-sm-6">
+							<div class="f_p_item">
+								<div class="f_p_img">
+									<img class="img-fluid" src="${pageContext.request.contextPath}/images/${b.picturePath}/${b.filename}" alt=""  width="350" height="250">
+									<div class="p_icon">
+										<a href="#">
+											<i class="lnr lnr-heart"></i>
+										</a>
+										<a href="#">
+											<i class="lnr lnr-cart"></i>
+										</a>
+									</div>
+								</div>
+								<a href="#">
+									<h4>${b.name}</h4>
+								</a>
+								<h5>$${b.price}</h5>
+							</div>
+						</div>
+					</c:forEach> 
+					</div>
+					<div class="product_top_bar">
+						<div class="right_page ml-auto" >	
+							<ul class="pager">
+							<li><a href="${pageContext.request.contextPath}${page.url}?num=${page.prePageNum}">Previous</a></li>
+							<li><a href="${pageContext.request.contextPath}${page.url}?num=${page.nextPageNum}">Next</a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="left_sidebar_area">
+						<aside class="left_widgets cat_widgets">
+							<div class="l_w_title">
+								<h3>Browse Categories</h3>
+							</div>
+							<div class="widgets_inner">
+								<ul class="list">
+									<li>
+										<a href="#">Fruits and Vegetables</a>
+									</li>
+									<li>
+										<a href="#">Meat and Fish</a>
+										<ul class="list">
+											<li>
+												<a href="#">Frozen Fish</a>
+											</li>
+											<li>
+												<a href="#">Dried Fish</a>
+											</li>
+											<li>
+												<a href="#">Fresh Fish</a>
+											</li>
+											<li>
+												<a href="#">Meat Alternatives</a>
+											</li>
+											<li>
+												<a href="#">Meat</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Cooking</a>
+										<ul class="list">
+											<li>
+												<a href="#">Frozen Fish</a>
+											</li>
+											<li>
+												<a href="#">Dried Fish</a>
+											</li>
+											<li>
+												<a href="#">Fresh Fish</a>
+											</li>
+											<li>
+												<a href="#">Meat Alternatives</a>
+											</li>
+											<li>
+												<a href="#">Meat</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Beverages</a>
+										<ul class="list">
+											<li>
+												<a href="#">Frozen Fish</a>
+											</li>
+											<li>
+												<a href="#">Dried Fish</a>
+											</li>
+											<li>
+												<a href="#">Fresh Fish</a>
+											</li>
+											<li>
+												<a href="#">Meat Alternatives</a>
+											</li>
+											<li>
+												<a href="#">Meat</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Home and Cleaning</a>
+									</li>
+								</ul>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Category Product Area =================-->
 
 	<!--================ Subscription Area ================-->
 	<section class="subscription-area section_gap">
@@ -211,8 +347,8 @@
 							<input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'"
 							 required="">
 							<!-- <div style="position: absolute; left: -5000px;">
-								<input type="text" name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="">
-							</div> -->
+									<input type="text" name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="">
+								</div> -->
 							<button type="submit" class="newsl-btn">Get Started</button>
 							<div class="info"></div>
 						</form>
@@ -316,6 +452,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
+
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -328,11 +465,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="vendors/isotope/isotope-min.js"></script>
 	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-	<script src="vendors/flipclock/timer.js"></script>
-	<script src="vendors/counter-up/jquery.counterup.js"></script>
 	<script src="js/mail-script.js"></script>
-	<script src="js/theme.js"></script>
-</body>
+	<script src="vendors/jquery-ui/jquery-ui.js"></script>
+	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendors/counter-up/jquery.counterup.js"></script>
 
+</body>
 </html>

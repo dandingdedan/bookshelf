@@ -8,7 +8,7 @@ public class Page {
 	private int prePageNum;//上一页
 	private int nextPageNum;//下一页
 	
-	private int pageSize=3;//每页显示的记录条数
+	private int pageSize=8;//每页显示的记录条数
 	private int totalRecordsNum;//总记录条数
 	
 	private int startIndex;//每页开始记录的索引

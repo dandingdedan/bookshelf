@@ -42,7 +42,7 @@ public class BookDaoImpl implements BookDao {
 		return flag;
 	}
 
-	@Override
+	/*@Override
 	public List<BookBean> findBookByName(String name) {
 		List<BookBean> list = new ArrayList<BookBean>();
 		Connection conn = null;
@@ -52,7 +52,7 @@ public class BookDaoImpl implements BookDao {
         	conn = DBconn.getConnection();
         	//ps = conn.prepareStatement("select * from book where name=?");
         	//实现数据库模糊查询
-        	ps = conn.prepareStatement("select * from book where name like ?");
+        	ps = conn.prepareStatement("select * from book where name like ? and state = 0");
         	ps.setString(1, "%" + name + "%");
             rs=ps.executeQuery();
             while(rs.next()) {
@@ -142,7 +142,7 @@ public class BookDaoImpl implements BookDao {
     	}
 		return null;
 	}
-
+*/
 	@Override
 	public List<BookBean> findLikeBookByUserID(int userID) {
 		List<BookBean> list = new ArrayList<BookBean>();
@@ -151,7 +151,7 @@ public class BookDaoImpl implements BookDao {
         ResultSet rs = null;
         try {
         	conn = DBconn.getConnection();
-        	ps = conn.prepareStatement("select B.* from book B, userinfo U, likebook L where L.bookID = B.id and L.userID = U.id and U.id = ?");
+        	ps = conn.prepareStatement("select B.* from book B, userinfo U, likebook L where L.bookID = B.id and L.userID = U.id and U.id = ? and B.state = 0");
         	ps.setInt(1, userID);
             rs=ps.executeQuery();
             while(rs.next()) {
@@ -159,10 +159,11 @@ public class BookDaoImpl implements BookDao {
             	book.setId(rs.getInt("id"));
             	book.setName(rs.getString("name"));
             	book.setPrice(rs.getFloat("price"));
-            	book.setState(rs.getInt("state"));
+            	//book.setState(rs.getInt("state"));
             	book.setISBN(rs.getString("ISBN"));
             	book.setCourseCode(rs.getString("coursecode"));
             	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
             	list.add(book);
             }
             return list;
@@ -174,35 +175,7 @@ public class BookDaoImpl implements BookDao {
 		return null;
 	}
 
-	@Override
-	public List<BookBean> showAllBook() {
-		List<BookBean> list = new ArrayList<BookBean>();
-		Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-        	conn = DBconn.getConnection();
-        	ps = conn.prepareStatement("select * from book");
-            rs=ps.executeQuery();
-            while(rs.next()) {
-            	BookBean book = new BookBean();
-            	book.setId(rs.getInt("id"));
-            	book.setName(rs.getString("name"));
-            	book.setPrice(rs.getFloat("price"));
-            	book.setState(rs.getInt("state"));
-            	book.setISBN(rs.getString("ISBN"));
-            	book.setCourseCode(rs.getString("coursecode"));
-            	book.setPicturePath(rs.getString("picturepath"));
-            	list.add(book);
-            }
-            return list;
-        }catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-    		DBconn.close(rs, ps, conn);
-    	}
-		return null;
-	}
+
 
 	@Override
 	public int getTotalRecordsNum() {
@@ -257,6 +230,229 @@ public class BookDaoImpl implements BookDao {
     		DBconn.close(rs, ps, conn);
     	}
 		return null;
+	}
+
+/*	@Override
+	public List<BookBean> findPageRecordsByKeyWords(int startIndex, int pageSize, String keyWords) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		List<BookBean> list = new ArrayList<BookBean>();
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select * from book where name like ? or ISBN like ? or coursecode like ? and state =0 limit ?,?");
+        	ps.setString(1, "%" + keyWords + "%");
+        	ps.setString(2, "%" + keyWords + "%");
+        	ps.setString(3, "%" + keyWords + "%");
+        	ps.setInt(4, startIndex);
+        	ps.setInt(5, pageSize);
+            rs=ps.executeQuery();
+            while(rs.next()) {
+            	BookBean book = new BookBean();
+            	book.setId(rs.getInt("id"));
+            	book.setName(rs.getString("name"));
+            	book.setPrice(rs.getFloat("price"));
+            	//book.setState(rs.getInt("state"));
+            	book.setISBN(rs.getString("ISBN"));
+            	book.setCourseCode(rs.getString("coursecode"));
+            	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
+            	list.add(book);
+            }
+            return list;
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return null;
+	}*/
+
+/*	@Override
+	public int getTotalRecordsNumByKeyWords(String keyWords) {
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int num = 0;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select count(*) from book where name like ? or ISBN like ? or coursecode like ? and state = 0");
+            rs=ps.executeQuery();
+            rs.next();
+            num = rs.getInt(1);
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return num;
+	}*/
+
+	@Override
+	public List<BookBean> findPageRecordsByName(int startIndex, int pageSize, String keyWords) {
+		List<BookBean> list = new ArrayList<BookBean>();
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select * from book where name like ?  and state =0 limit ?,?");
+        	ps.setString(1, "%" + keyWords + "%");
+        	ps.setInt(2, startIndex);
+        	ps.setInt(3, pageSize);
+            rs=ps.executeQuery();
+            while(rs.next()) {
+            	BookBean book = new BookBean();
+            	book.setId(rs.getInt("id"));
+            	book.setName(rs.getString("name"));
+            	book.setPrice(rs.getFloat("price"));
+            	//book.setState(rs.getInt("state"));
+            	book.setISBN(rs.getString("ISBN"));
+            	book.setCourseCode(rs.getString("coursecode"));
+            	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
+            	list.add(book);
+            }
+            return list;
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return null;
+	}
+
+	@Override
+	public List<BookBean> findPageRecordsByISBN(int startIndex, int pageSize, String keyWords) {
+		List<BookBean> list = new ArrayList<BookBean>();
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select * from book where ISBN like ?  and state =0 limit ?,?");
+        	ps.setString(1, "%" + keyWords + "%");
+        	ps.setInt(2, startIndex);
+        	ps.setInt(3, pageSize);
+            rs=ps.executeQuery();
+            while(rs.next()) {
+            	BookBean book = new BookBean();
+            	book.setId(rs.getInt("id"));
+            	book.setName(rs.getString("name"));
+            	book.setPrice(rs.getFloat("price"));
+            	//book.setState(rs.getInt("state"));
+            	book.setISBN(rs.getString("ISBN"));
+            	book.setCourseCode(rs.getString("coursecode"));
+            	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
+            	list.add(book);
+            }
+            return list;
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return null;
+	}
+
+	@Override
+	public List<BookBean> findPageRecordsByCourseCode(int startIndex, int pageSize, String keyWords) {
+		List<BookBean> list = new ArrayList<BookBean>();
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select * from book where coursecode like ?  and state =0 limit ?,?");
+        	ps.setString(1, "%" + keyWords + "%");
+        	ps.setInt(2, startIndex);
+        	ps.setInt(3, pageSize);
+            rs=ps.executeQuery();
+            while(rs.next()) {
+            	BookBean book = new BookBean();
+            	book.setId(rs.getInt("id"));
+            	book.setName(rs.getString("name"));
+            	book.setPrice(rs.getFloat("price"));
+            	//book.setState(rs.getInt("state"));
+            	book.setISBN(rs.getString("ISBN"));
+            	book.setCourseCode(rs.getString("coursecode"));
+            	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
+            	list.add(book);
+            }
+            return list;
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return null;
+	}
+
+	@Override
+	public int getTotalRecordsNumByName(String keyWords) {
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int num = 0;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select count(*) from book where name like ? and state = 0");
+        	ps.setString(1, "%" + keyWords + "%");
+            rs=ps.executeQuery();
+            rs.next();
+            num = rs.getInt(1);
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return num;
+	}
+
+	@Override
+	public int getTotalRecordsNumByISBN(String keyWords) {
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int num = 0;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select count(*) from book where ISBN like ? and state = 0");
+        	ps.setString(1, "%" + keyWords + "%");
+            rs=ps.executeQuery();
+            rs.next();
+            num = rs.getInt(1);
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return num;
+	}
+
+	@Override
+	public int getTotalRecordsNumByCourseCode(String keyWords) {
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int num = 0;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select count(*) from book where coursecode like ? and state = 0");
+        	ps.setString(1, "%" + keyWords + "%");
+            rs=ps.executeQuery();
+            rs.next();
+            num = rs.getInt(1);
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return num;
 	}
 
 

@@ -38,13 +38,16 @@ public class test {
 		  //将当前日期转换成指定日期格式输出
 		String day =sdf.format(today);
 		System.out.println(day);*/
-		BookDao book = new BookDaoImpl();
+/*		BookDao book = new BookDaoImpl();
 		List<BookBean> list = book.findPageRecords(1, 3);
 		System.out.println(list.size());
 		for(int i =0;i<list.size();i++) {
 			BookBean test = list.get(i);;
 			System.out.println(test.getName());
-		}
+		}*/
+		BookDao bookDao = new BookDaoImpl();
+		int totalRecordsNum = bookDao.getTotalRecordsNumByISBN("456");
+		System.out.println(totalRecordsNum);
 /*		BookDao book = new BookDaoImpl();
 		BookBean booktest = new BookBean();
 		booktest.setName("10.26");

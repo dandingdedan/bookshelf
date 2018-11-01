@@ -40,7 +40,7 @@ public class ShowBookPages extends HttpServlet {
 		Page page = s.findBookPageRecords(num);
 		page.setUrl("/ShowBookPages");
 		request.setAttribute("page", page);
-		request.getRequestDispatcher("/listbooks.jsp").forward(request, response);
+		request.getRequestDispatcher("/listbook.jsp").forward(request, response);
 	}
 
 	/**
