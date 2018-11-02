@@ -9,6 +9,13 @@ public class BookBean {
 	private String ISBN;
 	private String picturePath;//存放图片路径
 	private String filename;//更改后的唯一文件名
+	private String description;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	private int state;
 	
 	public int getOwnerId() {

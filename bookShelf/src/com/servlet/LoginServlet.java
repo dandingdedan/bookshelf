@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 	        //dispatcher.forward(request, response);
 			//System.out.println("success");
 			//request.getRequestDispatcher("/success.jsp").forward(request, response);//跳转
-			request.getSession().setAttribute("username", name);
+			request.getSession().setAttribute("name", name);
 			response.getWriter().append("0");
 		}else{
 			//response.sendRedirect("index.jsp"); //不成功则重定向

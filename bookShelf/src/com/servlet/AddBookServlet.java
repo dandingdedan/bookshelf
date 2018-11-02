@@ -25,7 +25,9 @@ import org.apache.commons.io.FilenameUtils;
 
 import com.bean.BookBean;
 import com.dao.BookDao;
+import com.dao.UserDao;
 import com.dao.impl.BookDaoImpl;
+import com.dao.impl.UserDaoImpl;
 import com.util.IdGenertor;
 
 
@@ -68,10 +70,19 @@ public class AddBookServlet extends HttpServlet {
 		String coursecode = request.getParameter("coursecode");
 		int owenrid = 1;*/
 		//**需要将userid从session中取出然后写入数据库
-		
-		int owenrid = 1;
-		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		UserDao user= new UserDaoImpl();
 		PrintWriter out = response.getWriter();//初始化out对象
+		int owenrid = 0;
+		String name = (String) request.getSession().getAttribute("name");
+		//System.out.println(name);
+		if(name==null||name.equals("")){
+			out.print("<script language='javascript'>alert('Please Login First!');window.location.href='login.jsp';</script>"); 
+		}else {
+			owenrid = user.findIdByName(name);
+		}
+		//System.out.println(owenrid);
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		
 		if(!isMultipart){
 			throw new RuntimeException("The form is not multipart/form-data");
 		}
@@ -95,7 +106,7 @@ public class AddBookServlet extends HttpServlet {
 				
 			}else{
 			//上传字段：上传
-				processUploadFiled(item,book);
+				processUploadFiled(item,book,out);
 			}
 		}
 		//把书籍信息保存到数据库中
@@ -103,13 +114,16 @@ public class AddBookServlet extends HttpServlet {
 		if ((Math.abs(a)<0.00000001)) {
 			out.print("<script language='javascript'>alert('Price must be a number!');window.location.href='uploadbook.jsp';</script>"); 
 		}
+		if (book.getName().equals("")||book.getISBN().equals("")||book.getCourseCode().equals("")||book.getDescription().equals("")) {
+			out.print("<script language='javascript'>alert('Please fill all the information!');window.location.href='uploadbook.jsp';</script>"); 
+		}
 		else {
 		bookDao.addBook(book);}
-			
+		out.print("<script language='javascript'>alert('Upload successfully!');window.location.href='uploadbook.jsp';</script>"); 
 	}
 	//添加图书
 		//处理文件上传
-		private void processUploadFiled(FileItem item, BookBean book) {
+		private void processUploadFiled(FileItem item, BookBean book,PrintWriter out) {
 			//存放路径：不要放在WEB-INF中
 			String storeDirectory = getServletContext().getRealPath("/images");
 			File rootDirectory = new File(storeDirectory);
@@ -118,6 +132,11 @@ public class AddBookServlet extends HttpServlet {
 			}
 			//搞文件名
 			String filename = item.getName();//  a.jpg
+			if (filename=="")
+			{
+				out.print("<script language='javascript'>alert('Please Select A Picture!');window.location.href='uploadbook.jsp';</script>"); 
+			}
+			
 			if(filename!=null){
 				filename = IdGenertor.genGUID()+"."+ FilenameUtils.getExtension(filename);//LKDSJFLKSFKS.jpg
 				book.setFilename(filename);

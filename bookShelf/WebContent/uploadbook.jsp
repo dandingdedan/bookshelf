@@ -1,197 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@include file="./common/header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Fashiop</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="vendors/linericon/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-    <link rel="stylesheet" href="vendors/animate-css/animate.css">
-    <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
-    <!-- main css -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <script type="text/javascript" >
-	function fileChange(target) {
-		  var fileSize = 0;         
-	       if (!target.files) {     
-	         var filePath = target.value;     
-	         var fileSystem = new ActiveXObject("Scripting.FileSystemObject");        
-	         var file = fileSystem.GetFile (filePath);     
-	         fileSize = file.Size;    
-	       } else {    
-	        fileSize = target.files[0].size;     
-	        }   
-	        var size = fileSize / 1024;    
-	        if(size>2000){  
-	         alert("The picture cannot be greater than 2M");
-	         target.value="";
-	         return
-	        }
-	        var name=target.value;
-	        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
-	        if(fileName !="jpg" && fileName !="jpeg" && fileName !="pdf" && fileName !="png" && fileName !="dwg" && fileName !="gif" ){
-	          alert("Please upload a picture(jpg,png,gif,dwg,pdf,gif)!");
-	            target.value="";
-	            return
-	        }
-	   } 
-
-
-   	</script>
-</head>
-
 <body>
-
-    <!--================Header Menu Area =================-->
-    <header class="header_area">
-        <div class="top_menu row m0">
-            <div class="container-fluid">
-                <div class="float-left">
-                    <p>Call Us: 012 44 5698 7456 896</p>
-                </div>
-                <div class="float-right">
-                    <ul class="right_side">
-                        <li>
-                            <a href="login.html">
-                                Login/Register
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                My Account
-                            </a>
-                        </li>
-                        <li>
-                            <a href="contact.html">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <div class="row w-100">
-                            <div class="col-lg-7 pr-0">
-                                <ul class="nav navbar-nav center_nav pull-right">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home</a>
-                                    </li>
-                                    <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="category.html">Shop Category</a>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="single-product.html">Product Details</a>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="checkout.html">Product Checkout</a>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="cart.html">Shopping Cart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="confirmation.html">Confirmation</a>
-                                                        </li>
-                                        </ul>
-                                        </li>
-                                        <li class="nav-item submenu dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="blog.html">Blog</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="single-blog.html">Blog Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item submenu dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="login.html">Login</a>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="tracking.html">Tracking</a>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="elements.html">Elements</a>
-                                                        </li>
-                                            </ul>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="contact.html">Contact</a>
-                                            </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <ul class="nav navbar-nav navbar-right right_nav pull-right">
-                                    <hr>
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="lnr lnr lnr-cart"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <!--================Header Menu Area =================-->
-
     <!--================Home Banner Area =================-->
     <section class="banner_area">
         <div class="banner_inner d-flex align-items-center">
@@ -225,8 +37,11 @@
                     <div class="col-md-12 form-group">
                         <input type="text" class="form-control" id="courseCode" name="courseCode" placeholder="Course Code" >
                     </div>
+                    <div class="col-md-12 form-group">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description" >
+                    </div>
                      <div class="col-md-12 form-group">
-                        <input type="file" class="form-control" id="file" name="file"  onchange="fileChange(this);">
+                        <input rows="3" type="file" class="form-control" id="file" name="file"  onchange="fileChange(this);">
                     </div>
                     <div class="col-md-12 form-group">
                         <button type="submit" value="submit" class="btn submit_btn">Upload</button>
@@ -328,10 +143,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!--================ End footer Area  =================-->
-
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -349,6 +160,34 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
     <script src="vendors/counter-up/jquery.counterup.js"></script>
     <script src="js/theme.js"></script>
+    <script type="text/javascript" >
+	function fileChange(target) {
+		  var fileSize = 0;         
+	       if (!target.files) {     
+	         var filePath = target.value;     
+	         var fileSystem = new ActiveXObject("Scripting.FileSystemObject");        
+	         var file = fileSystem.GetFile (filePath);     
+	         fileSize = file.Size;    
+	       } else {    
+	        fileSize = target.files[0].size;     
+	        }   
+	        var size = fileSize / 1024;    
+	        if(size>2000){  
+	         alert("The picture cannot be greater than 2M");
+	         target.value="";
+	         return
+	        }
+	        var name=target.value;
+	        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+	        if(fileName !="jpg" && fileName !="jpeg" && fileName !="pdf" && fileName !="png" && fileName !="dwg" && fileName !="gif" ){
+	          alert("Please upload a picture(jpg,png,gif,dwg,pdf,gif)!");
+	            target.value="";
+	            return
+	        }
+	   } 
+
+
+   	</script>
 </body>
 
 

@@ -2,18 +2,21 @@
     pageEncoding="ISO-8859-1"%>
 <%@include file="./common/header.jsp"%>
 <!DOCTYPE html>
-
 <html lang="en">
+
+
 <body>
+
+
 	<!--================Home Banner Area =================-->
 	<section class="banner_area">
 		<div class="banner_inner d-flex align-items-center">
 			<div class="container">
 				<div class="banner_content text-center">
-					<h2>Shopping Cart</h2>
+					<h2>Order Confirmation</h2>
 					<div class="page_link">
 						<a href="index.html">Home</a>
-						<a href="cart.html">Cart</a>
+						<a href="confirmation.html">Confirmation</a>
 					</div>
 				</div>
 			</div>
@@ -21,16 +24,88 @@
 	</section>
 	<!--================End Home Banner Area =================-->
 
-	<!--================Cart Area =================-->
-	<section class="cart_area">
+	<!--================Order Details Area =================-->
+	<section class="order_details p_120">
 		<div class="container">
-			<div class="cart_inner">
+			<h3 class="title_confirmation">Thank you. Your order has been received.</h3>
+			<div class="row order_d_inner">
+				<div class="col-lg-4">
+					<div class="details_item">
+						<h4>Order Info</h4>
+						<ul class="list">
+							<li>
+								<a href="#">
+									<span>Order number</span> : 60235</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Date</span> : Los Angeles</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Total</span> : USD 2210</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Payment method</span> : Check payments</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="details_item">
+						<h4>Billing Address</h4>
+						<ul class="list">
+							<li>
+								<a href="#">
+									<span>Street</span> : 56/8</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>City</span> : Los Angeles</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Country</span> : United States</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Postcode </span> : 36952</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="details_item">
+						<h4>Shipping Address</h4>
+						<ul class="list">
+							<li>
+								<a href="#">
+									<span>Street</span> : 56/8</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>City</span> : Los Angeles</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Country</span> : United States</a>
+							</li>
+							<li>
+								<a href="#">
+									<span>Postcode </span> : 36952</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="order_details_table">
+				<h2>Order Details</h2>
 				<div class="table-responsive">
 					<table class="table">
 						<thead>
 							<tr>
 								<th scope="col">Product</th>
-								<th scope="col">Price</th>
 								<th scope="col">Quantity</th>
 								<th scope="col">Total</th>
 							</tr>
@@ -38,188 +113,68 @@
 						<tbody>
 							<tr>
 								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<p>Minimalistic shop for multipurpose use</p>
-										</div>
-									</div>
+									<p>Pixelstore fresh Blackberry</p>
 								</td>
 								<td>
-									<h5>$360.00</h5>
+									<h5>x 02</h5>
 								</td>
 								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-										 class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-										 class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>$720.00</h5>
+									<p>$720.00</p>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<p>Minimalistic shop for multipurpose use</p>
-										</div>
-									</div>
+									<p>Pixelstore fresh Blackberry</p>
 								</td>
 								<td>
-									<h5>$360.00</h5>
+									<h5>x 02</h5>
 								</td>
 								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-										 class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-										 class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>$720.00</h5>
+									<p>$720.00</p>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/single-product/cart-1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<p>Minimalistic shop for multipurpose use</p>
-										</div>
-									</div>
+									<p>Pixelstore fresh Blackberry</p>
 								</td>
 								<td>
-									<h5>$360.00</h5>
+									<h5>x 02</h5>
 								</td>
 								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-										 class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-										 class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>$720.00</h5>
-								</td>
-							</tr>
-							<tr class="bottom_button">
-								<td>
-									<a class="gray_btn" href="#">Update Cart</a>
-								</td>
-								<td>
-
-								</td>
-								<td>
-
-								</td>
-								<td>
-									<div class="cupon_text">
-										<input type="text" placeholder="Coupon Code">
-										<a class="main_btn" href="#">Apply</a>
-										<a class="gray_btn" href="#">Close Coupon</a>
-									</div>
+									<p>$720.00</p>
 								</td>
 							</tr>
 							<tr>
 								<td>
-
+									<h4>Subtotal</h4>
 								</td>
 								<td>
-
+									<h5></h5>
 								</td>
 								<td>
-									<h5>Subtotal</h5>
-								</td>
-								<td>
-									<h5>$2160.00</h5>
+									<p>$2160.00</p>
 								</td>
 							</tr>
-							<tr class="shipping_area">
+							<tr>
 								<td>
-
+									<h4>Shipping</h4>
 								</td>
 								<td>
-
+									<h5></h5>
 								</td>
 								<td>
-									<h5>Shipping</h5>
-								</td>
-								<td>
-									<div class="shipping_box">
-										<ul class="list">
-											<li>
-												<a href="#">Flat Rate: $5.00</a>
-											</li>
-											<li>
-												<a href="#">Free Shipping</a>
-											</li>
-											<li>
-												<a href="#">Flat Rate: $10.00</a>
-											</li>
-											<li class="active">
-												<a href="#">Local Delivery: $2.00</a>
-											</li>
-										</ul>
-										<h6>Calculate Shipping
-											<i class="fa fa-caret-down" aria-hidden="true"></i>
-										</h6>
-										<select class="shipping_select">
-											<option value="1">Bangladesh</option>
-											<option value="2">India</option>
-											<option value="4">Pakistan</option>
-										</select>
-										<select class="shipping_select">
-											<option value="1">Select a State</option>
-											<option value="2">Select a State</option>
-											<option value="4">Select a State</option>
-										</select>
-										<input type="text" placeholder="Postcode/Zipcode">
-										<a class="gray_btn" href="#">Update Details</a>
-									</div>
+									<p>Flat rate: $50.00</p>
 								</td>
 							</tr>
-							<tr class="out_button_area">
+							<tr>
 								<td>
-
+									<h4>Total</h4>
 								</td>
 								<td>
-
+									<h5></h5>
 								</td>
 								<td>
-
-								</td>
-								<td>
-									<div class="checkout_btn_inner">
-										<a class="gray_btn" href="#">Continue Shopping</a>
-										<a class="main_btn" href="#">Proceed to checkout</a>
-									</div>
+									<p>$2210.00</p>
 								</td>
 							</tr>
 						</tbody>
@@ -228,7 +183,7 @@
 			</div>
 		</div>
 	</section>
-	<!--================End Cart Area =================-->
+	<!--================End Order Details Area =================-->
 
 	<!--================ Subscription Area ================-->
 	<section class="subscription-area section_gap">

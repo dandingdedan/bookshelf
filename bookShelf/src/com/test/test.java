@@ -46,8 +46,9 @@ public class test {
 			System.out.println(test.getName());
 		}*/
 		BookDao bookDao = new BookDaoImpl();
-		int totalRecordsNum = bookDao.getTotalRecordsNumByISBN("456");
-		System.out.println(totalRecordsNum);
+		BookBean book = bookDao.findBookById(9);
+		//int totalRecordsNum = bookDao.getTotalRecordsNumByISBN("456");
+		System.out.println(book.getName());
 /*		BookDao book = new BookDaoImpl();
 		BookBean booktest = new BookBean();
 		booktest.setName("10.26");

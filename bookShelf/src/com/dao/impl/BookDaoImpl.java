@@ -17,7 +17,7 @@ public class BookDaoImpl implements BookDao {
 		boolean flag = false;
 		Connection conn = null;
 		PreparedStatement ps = null;
-		String sql = "insert into book(name,price,ISBN,coursecode,picturepath,ownerid,filename)values(?,?,?,?,?,?,?)";
+		String sql = "insert into book(name,price,ISBN,coursecode,picturepath,ownerid,filename,description)values(?,?,?,?,?,?,?,?)";
 		try {
 			conn = DBconn.getConnection();
 			ps =  conn.prepareStatement(sql);
@@ -28,6 +28,7 @@ public class BookDaoImpl implements BookDao {
 			ps.setString(5, bookBean.getPicturePath());
 			ps.setInt(6, bookBean.getOwnerId());
 			ps.setString(7, bookBean.getFilename());
+			ps.setString(8, bookBean.getDescription());
 			int i =  ps.executeUpdate();
 			if(i>0){
 				//操作的条数大于0
@@ -453,6 +454,37 @@ public class BookDaoImpl implements BookDao {
     		DBconn.close(rs, ps, conn);
     	}
 		return num;
+	}
+
+	@Override
+	public BookBean findBookById(int id) {
+		BookBean book = new BookBean();
+		Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	conn = DBconn.getConnection();
+        	ps = conn.prepareStatement("select * from book where id=?");
+        	ps.setInt(1, id);
+            rs=ps.executeQuery();
+            while(rs.next()) {
+            	book.setId(rs.getInt("id"));
+            	book.setName(rs.getString("name"));
+            	book.setPrice(rs.getFloat("price"));
+            	book.setState(rs.getInt("state"));
+            	book.setISBN(rs.getString("ISBN"));
+            	book.setCourseCode(rs.getString("coursecode"));
+            	book.setPicturePath(rs.getString("picturepath"));
+            	book.setFilename(rs.getString("filename"));
+            	book.setDescription(rs.getString("description"));
+            }
+            return book;
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+    		DBconn.close(rs, ps, conn);
+    	}
+		return null;
 	}
 
 

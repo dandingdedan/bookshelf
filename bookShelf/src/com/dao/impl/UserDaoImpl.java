@@ -108,4 +108,29 @@ public class UserDaoImpl implements UserDao {
 		return flag;
 	}
 
+	@Override
+	public int findIdByName(String name) {
+		// TODO Auto-generated method stub
+		int id =0;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "select * from userinfo where name= ?";
+		try {
+		    conn= DBconn.getConnection();
+		    ps = conn.prepareStatement(sql);
+		    ps.setString(1, name);
+		    rs = ps.executeQuery(); 
+			while(rs.next()){
+				id = rs.getInt("id");
+
+			}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		DBconn.close(null, ps, conn);
+	}
+		return id;
+	}
+
 }

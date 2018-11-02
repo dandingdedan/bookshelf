@@ -29,13 +29,18 @@
 	<header class="header_area">
 		<div class="top_menu row m0">
 			<div class="container-fluid">
-				<div class="float-left">
-					<p>Call Us: 012 44 5698 7456 896</p>
+				<div class="float-left">											
+					<%-- <p>Hi. ${username} </p> --%>
+					<% if  (request.getSession().getAttribute("name")==null) {%>
+					<p>Hi. </p> 
+					<% }else {%>
+ 					<p>Hi. <%=request.getSession().getAttribute("name") %></p> 
+ 					<% }%>
 				</div>
 				<div class="float-right">
 					<ul class="right_side">
 						<li>
-							<a href="login.html">
+							<a href="login.jsp">
 								Login/Register
 							</a>
 						</li>
@@ -57,7 +62,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html">
+					<a class="navbar-brand logo_h" href="index.jsp">
 						<img src="img/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -72,23 +77,18 @@
 							<div class="col-lg-7 pr-0">
 								<ul class="nav navbar-nav center_nav pull-right">
 									<li class="nav-item active">
-										<a class="nav-link" href="index.html">Home</a>
+										<a class="nav-link" href="index.jsp">Home</a>
 									</li>
 									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
-												<a class="nav-link" href="category.html">Shop Category</a>
+												<a class="nav-link" href="showallbook.jsp">View Book</a>
 												<li class="nav-item">
-													<a class="nav-link" href="single-product.html">Product Details</a>
+													
 													<li class="nav-item">
-														<a class="nav-link" href="checkout.html">Product Checkout</a>
-														<li class="nav-item">
-															<a class="nav-link" href="cart.html">Shopping Cart</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link" href="confirmation.html">Confirmation</a>
-														</li>
+														<a class="nav-link" href="uploadbook.jsp">Upload Book</a>
+											
 										</ul>
 										</li>
 										<li class="nav-item submenu dropdown">
@@ -103,20 +103,15 @@
 											</ul>
 										</li>
 										<li class="nav-item submenu dropdown">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart</a>
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="login.html">Login</a>
+													<a class="nav-link" href="cart.jsp">View Cart</a>
 													<li class="nav-item">
-														<a class="nav-link" href="tracking.html">Tracking</a>
-														<li class="nav-item">
-															<a class="nav-link" href="elements.html">Elements</a>
-														</li>
+													
 											</ul>
 											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="contact.html">Contact</a>
-											</li>
+											
 								</ul>
 							</div>
 
