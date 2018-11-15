@@ -1,6 +1,6 @@
 package com.bean;
 
-public class BookBean {
+public class CartBean {
 	private int id;
 	private int ownerId;
 	private float price;
@@ -79,5 +79,4 @@ public class BookBean {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
 }

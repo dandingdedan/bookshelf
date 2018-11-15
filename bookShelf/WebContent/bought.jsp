@@ -166,12 +166,7 @@
 								<td>
 
 								</td>
-								<td>
-									<div class="checkout_btn_inner">
-										<!-- <a class="gray_btn" href="#"> Continue Shopping</a> -->
-										<a id="checkoutBtn" class="main_btn" href="#">Proceed to checkout</a>
-									</div>
-								</td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -202,33 +197,7 @@
 	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
 	<script src="vendors/counter-up/jquery.counterup.js"></script>
 	<script src="js/theme.js"></script>
-	<script type="text/javascript" >
-   /* 	/servlet/Test2 */
-   $("#checkoutBtn").on("click", function(){
-	  	var ele = $("input[name*='bookID']");
-	  	if (ele.length <= 0) return;
-	  	var ids = "";
-	  	for (i = 0; i < ele.length; i++){
-	  		ids =  ids + "," + ele[i].value;
-	  	}
-	  	ids = ids.substr(1);
-   		$.ajax({
-		    url:'CheckoutServlet',
-		    type:'POST', 
-		    async:true,    
-		    data:{
-		        bookIds: ids
-		    },
-		    dataType:'text',    
-		    success:function(data){
-		    	if(data == "0")
-		    		window.location.href = "confirmation.jsp"	    		
-		    	else
-		    		alert("Checkout failed");
-		    }
-	   	});
-   })
-   	</script>
+
 </body>
 
 </html>

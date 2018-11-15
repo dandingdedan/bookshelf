@@ -23,16 +23,7 @@ public class ServiceImpl implements Service {
 		page.setRecords(records);
 		return page;
 	}
-/*	@Override
-	public Page findBookPageRecordsByKeyWords(String keyWords) {
-		int pageNum = 1;
-		int totalRecordsNum = bookDao.getTotalRecordsNumByKeyWords(keyWords);
-		Page page = new Page(pageNum, totalRecordsNum);
-		//List<BookBean> records = bookDao.findPageRecords(page.getStartIndex(),page.getPageSize());
-		List<BookBean> records = bookDao.findPageRecordsByKeyWords(page.getStartIndex(), page.getPageSize(), keyWords);
-		page.setRecords(records);
-		return page;
-	}*/
+
 	@Override
 	public Page findBookPageRecordsByName(String keywords) {
 		int pageNum = 1;
@@ -61,6 +52,35 @@ public class ServiceImpl implements Service {
 		List<BookBean> records = bookDao.findPageRecordsByCourseCode(page.getStartIndex(), page.getPageSize(), keywords);
 		page.setRecords(records);
 		return page;
+	}
+	@Override
+	public List<BookBean> findBookCartByUserID(int userID) {
+		List<BookBean> records = bookDao.findCartBookByUserID(userID);
+		
+		return records;
+	}
+	
+	@Override
+	public boolean addLikeBook(int userID, int bookID) {
+		return bookDao.addLikeBook(userID, bookID);
+		
+	}
+	
+	@Override
+	public boolean addCartBook(int userID, int bookID) {
+		return bookDao.addCartBook(userID, bookID);
+	}
+
+	@Override
+	public List<BookBean> findLikeBookByUserID(int userID) {
+		List<BookBean> records = bookDao.findLikeBookByUserID(userID);
+		return records;
+	}
+
+	@Override
+	public List<BookBean> findBoughtBookByUserID(int userID) {
+		List<BookBean> records = bookDao.findBoughtBookByUserID(userID);
+		return records;
 	}
 
 }

@@ -30,7 +30,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>Fashiop</title>
+	<title>Bookshelf</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
@@ -67,13 +67,8 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								My Account
-							</a>
-						</li>
-						<li>
-							<a href="contact.html">
-								Contact Us
+							<a href="logout.jsp">
+								Log out
 							</a>
 						</li>
 					</ul>
@@ -85,7 +80,7 @@
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="index.jsp">
-						<img src="img/logo.png" alt="">
+						<img src="img/favicon.png" alt=""> Bookshelf
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 					 aria-expanded="false" aria-label="Toggle navigation">
@@ -102,7 +97,7 @@
 										<a class="nav-link" href="index.jsp">Home</a>
 									</li>
 									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book</a>
+										<a href="showallbook.jsp" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
 												<a class="nav-link" href="showallbook.jsp">View Book</a>
@@ -114,21 +109,21 @@
 										</ul>
 										</li>
 										<li class="nav-item submenu dropdown">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Goods</a>
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="blog.html">Blog</a>
+													<a class="nav-link" href="likebook.jsp">Favorite Books</a>
 												</li>
 												<li class="nav-item">
-													<a class="nav-link" href="single-blog.html">Blog Details</a>
+													<a class="nav-link" href="showbought.jsp">Already Bought</a>
 												</li>
 											</ul>
 										</li>
 										<li class="nav-item submenu dropdown">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart</a>
+											<a href="showcart.jsp" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart</a>
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="cart.jsp">View Cart</a>
+													<a class="nav-link" href="showcart.jsp">View Cart</a>
 													<li class="nav-item">
 													
 											</ul>
@@ -149,18 +144,18 @@
 
 									<hr>
 
-									<li class="nav-item">
+<!-- 									<li class="nav-item">
 										<a href="#" class="icons">
 											<i class="fa fa-user" aria-hidden="true"></i>
-											<!-- <i class="lnr lnr lnr-user" aria-hidden="true"></i> -->
+											<i class="lnr lnr lnr-user" aria-hidden="true"></i>
 											<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 										</a>
-									</li>
+									</li> -->
 
 									<hr>
 
 									<li class="nav-item">
-										<a href="#" class="icons">
+										<a href="likebook.jsp" class="icons">
 											<!-- <i class="fa fa-heart-o" aria-hidden="true"></i> -->
 											<i class="lnr lnr lnr-heart" aria-hidden="true"></i>
 										</a>
@@ -169,7 +164,7 @@
 									<hr>
 
 									<li class="nav-item">
-										<a href="#" class="icons">
+										<a href="showcart.jsp" class="icons">
 											<i class="lnr lnr lnr-cart"></i>
 										</a>
 									</li>
